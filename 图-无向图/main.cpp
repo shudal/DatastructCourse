@@ -12,6 +12,8 @@ void printMenu() {
     cout<<"5 删除边"<<endl;
     cout<<"6 根据fromCode和toCode获取边信息"<<endl;
     cout<<"8 更新边信息"<<endl;
+    cout<<"9 Prim"<<endl;
+    cout<<"10 Kruskal"<<endl;
 }
 void printVex(Vex v) {
     cout<<"code="<<v.code<<", name="<<v.name<<endl;
@@ -31,6 +33,7 @@ int main() {
     string vexCode;
     string fromCode, toCode;
     bool b;
+    int ans;
     while (1) {
         printMenu();
         int action;
@@ -79,6 +82,15 @@ int main() {
                 b = g.updateEdge(e);
                 if (b) cout<<"更新成功"<<endl;
                 else cout<<"更新失败"<<endl;
+                break;
+            case 9:
+                ans = g.primMinTree();
+                cout<<"prim:最小生成树的边权和为"<<ans<<endl;
+                break;
+            case 10:
+                ans = g.kruskalMinTree();
+                cout<<"krus:最小生成树的边权和为"<<ans<<endl;
+                break;
         }
     }
 }

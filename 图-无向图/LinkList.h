@@ -27,6 +27,9 @@ class LinkList {
 
         class iterator {
             public:
+                iterator() {
+                    p = NULL;
+                }
                 iterator(Node<T> *_p) {
                     p = _p;
                 }

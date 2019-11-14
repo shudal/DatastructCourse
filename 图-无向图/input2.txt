@@ -1,0 +1,19 @@
+1
+a aa
+1
+b bb
+1
+c cc
+1
+d dd
+4
+a b 1
+4
+a d 2
+4
+b d 5
+4
+c a 4
+4
+d c 3
+10

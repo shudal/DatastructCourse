@@ -4,6 +4,9 @@
 #include "LinkList.cpp"
 #include <iostream>
 #include <string>
+#include <vector>
+#include <cstring>
+#include <algorithm>
 using namespace std;
 
 const int MAX_NUM = 20;
@@ -11,6 +14,7 @@ const int MAX_STR = 100;
 const int MAX = 10000;
 
 struct Vex {
+    int id;
     string code;
     string name;
     bool operator== (const Vex v) const {
@@ -46,11 +50,15 @@ struct Edge {
         }
         return true;
     }
+    bool operator < (const Edge &e) const {
+        return w<e.w;
+    }
 };
 
 class Graph {
     private:
-        int AdjMatrix[MAX_NUM][MAX_NUM];
+        vector<Edge> g[MAX_NUM];
+        int fa[MAX_NUM];
         LinkList<Vex> vexs;
         LinkList<Edge> edges;
         int vexNum;
@@ -60,6 +68,8 @@ class Graph {
         void visitEdge(const Edge &e) {
             cout<<"from(code=" + e.from.code + ", name="+ e.from.name + "),to(code="+ e.to.code + ", name=" + e.to.name + ")";
         }
+        void genG();
+        int getfather(int);
     public:
         Graph();
         ~Graph();
@@ -75,9 +85,7 @@ class Graph {
         Vex getVex(string);
         void setVexNum(int n);
 
-        int primMinTree(Edge aPath[]);
-        int kruskalMinTree(Edge aPath[]);
-        // void traverseVexs() const;
-        // void traverseEdges() const;
+        int primMinTree();
+        int kruskalMinTree();
 };
 #endif
