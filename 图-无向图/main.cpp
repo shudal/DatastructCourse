@@ -3,7 +3,9 @@
 #include "Graph.cpp"
 
 using namespace std;
+int pMed = 0;
 void printMenu() {
+    if (pMed) return;
     cout<<"1 插入顶点"<<endl;
     cout<<"2 删除顶点"<<endl;
     cout<<"3 根据code获取顶点信息"<<endl;
@@ -14,6 +16,7 @@ void printMenu() {
     cout<<"8 更新边信息"<<endl;
     cout<<"9 Prim"<<endl;
     cout<<"10 Kruskal"<<endl;
+    pMed = 1;
 }
 void printVex(Vex v) {
     cout<<"code="<<v.code<<", name="<<v.name<<endl;
